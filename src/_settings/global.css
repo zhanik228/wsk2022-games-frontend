@@ -1,0 +1,21 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+#root {
+    min-height: 100%;
+}
+
+.section-margin {
+    margin-block: 10px;
+}
+
+.fullScreen {
+    height: calc(100vh - 81.4px);
+}

@@ -1,3 +1,16 @@
 .button {
     color: black;
+    background-color: #9060FA;
+}
+
+.small {
+    padding: 0 10px;
+}
+
+.medium {
+    padding: 10px 15px;
+}
+
+.default {
+    color: #fff;
 }

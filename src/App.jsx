@@ -1,15 +1,12 @@
-import Button from "./components/atoms/button"
+import { Outlet } from "react-router-dom"
+import Header from "./components/organizms/header"
 
 const App = () => {
-    const onClick = (callback) => {
-        console.log(callback);
-    }
-
     return (
-        <Button 
-         type="submit"
-         onClick={onClick}
-        >This is my button atom</Button>
+        <>
+        <Header />
+        <Outlet />
+        </>
     )
 }
 
