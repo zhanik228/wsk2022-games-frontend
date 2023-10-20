@@ -4,6 +4,7 @@ import SignUpPage from "../components/pages/signup"
 import GamesPage from "../components/pages/games"
 import SignOutPage from "../components/pages/signout"
 import SignInPage from "../components/pages/signin"
+import GamePage from "../components/pages/game"
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: '/signin',
                 element: <SignInPage />
+            },
+            {
+                path: '/game/:slug',
+                element: <GamePage />
             }
         ]
     }

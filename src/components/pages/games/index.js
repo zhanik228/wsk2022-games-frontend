@@ -13,7 +13,7 @@ const GamesPage = () => {
         size: 10,
     })
     const [pageNumber, setPageNumber] = useState(0)
-    const [selectedSort, setSelectedSort] = useState()
+    const [selectedSort, setSelectedSort] = useState('popular')
 
     const {
         games,
@@ -47,12 +47,15 @@ const GamesPage = () => {
         switch (sortName.toLowerCase()) {
             case 'popularity':
                 sortName = 'popular'
+                setSelectedSort('popular')
                 break
             case 'recently updated':
                 sortName = 'uploaddate'
+                setSelectedSort('uploaddate')
                 break
             case 'alphabetically':
                 sortName = 'title'
+                setSelectedSort('title')
                 break
         }
         setPageNumber(0)
@@ -74,6 +77,7 @@ const GamesPage = () => {
                     sortBy={sortButtons}
                     onSortNameClick={onSortNameClick}
                     onSortDirClick={onSortDirClick}
+                    selectedSort={selectedSort}
                 />
                 <CardList CardRef={lastGameElementRef} cards={games} />
                 {loading && 

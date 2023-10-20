@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react"
 
 const Sort = (props) => {
-    const { onSortNameClick, onSortDirClick } = props
+    const { onSortNameClick, onSortDirClick, selectedSort } = props
     const sortDirections = [
         'asc',
         'desc',
@@ -9,6 +10,27 @@ const Sort = (props) => {
         availableGames,
         sortBy,
     } = props
+    
+    const [convertedSortBy, setConvertedSortBy] = useState([])
+    useEffect(() => {
+        const convertSortNames = () => {
+            sortBy.forEach((sortName, index) => {
+                switch (selectedSort) {
+                    case 'popular':
+                        convertedSortBy.push(selectedSort)
+                        break
+                    case 'uploaddate':
+                        convertedSortBy.push(selectedSort)
+                        break
+                    case 'title':
+                        convertedSortBy.push(selectedSort)
+                        break
+                    default: break
+                }
+            });
+        }
+        convertSortNames()
+    }, [selectedSort])
     return (
         <section
             className="d-flex justify-content-between section-margin"
@@ -18,11 +40,16 @@ const Sort = (props) => {
                 {sortBy.map(sort => (
                     <button
                         key={sort}
-                        className="
+                        className={`'
                             text-uppercase
                             btn
                             btn-outline-secondary
-                        "
+                            ${selectedSort === sort ?
+                                'text-white'
+                                : ''
+                            }
+                        `
+                        }
                         onClick={() => onSortNameClick(sort)}
                     >
                         {sort}

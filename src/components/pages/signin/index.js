@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
     const navigate = useNavigate()
+    const [errors, setErrors] = useState([])
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -38,7 +39,9 @@ const SignInPage = () => {
             localStorage.setItem('token', response.data.token)
             navigate(0)
         } catch (error) {
-            console.error(error)
+            for (let i in error.response.data.violations) {
+                setErrors(prevArr => prevArr.concat(error.response.data.violations[i].message))
+            }
         }
     }
 
@@ -98,6 +101,9 @@ const SignInPage = () => {
                         Cancel
                     </button>
                 </div>
+                {errors && 
+                        <p className="text-danger">{errors}</p>
+                    }
                 </form>
             </section>
         </main>
