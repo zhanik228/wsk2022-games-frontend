@@ -1,14 +1,22 @@
+import React from "react"
 import Card from "../card"
 
-const CardList = ({cards}) => {
+const CardList = React.forwardRef(({cards, CardRef}, ref) => {
+
     return (
+        <>
         <section className="section-margin">
-            {cards.map(card => (
-                <Card key={card.slug} card={card} />
-            ))
+            {cards.map((card, index) => {
+                if (cards.length === index + 1) {
+                    return <Card CardRef={CardRef} key={card.slug} card={card} />
+                } else {
+                    return <Card key={card.slug} card={card} />
+                }
+            })
             }
         </section>
+        </>
     )
-}
+})
 
 export default CardList

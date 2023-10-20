@@ -1,7 +1,8 @@
+import React from "react"
 
-const Card = ({ card }) => {
+const Card = ({ card, CardRef }) => {
     return (
-        <div className=" card border p-2">
+        <div ref={CardRef} className=" card border p-2">
             <div className="d-flex justify-content-between p-2">
                 <h3 className="align-self-end">{card.title}</h3>
                 <p>#scores submitted: {card.scoreCount}</p>
