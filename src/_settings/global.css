@@ -8,6 +8,30 @@ html {
     height: 100%;
 }
 
+.p-2 {
+    padding-block: 15px;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-self-end {
+    align-self: flex;
+}
+
 #root {
     min-height: 100%;
 }

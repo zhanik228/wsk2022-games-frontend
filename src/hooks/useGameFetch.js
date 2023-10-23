@@ -12,7 +12,7 @@ export default function useGameFetch(slug) {
         const getGames = async () => {
             try {
                 const response = await instance.get(`games/${slug}`)
-                setGame(response.data)
+                setGame(response.data[0])
                 setLoading(false)
                 console.log(response.data)
             } catch (error) {
