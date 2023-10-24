@@ -27,7 +27,7 @@ export default function useGameScoreFetch(query, slug) {
         }
         setInterval(() => {
             getScores()
-        }, 5000);
+        }, 50000);
     }, [query, slug])
     return { loading, error, scores }
 }

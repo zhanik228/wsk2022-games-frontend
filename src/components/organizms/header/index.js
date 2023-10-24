@@ -31,7 +31,20 @@ const Header = () => {
             </h1>
             {isAuthorized ?
             <div className="d-flex align-items-center">
-                <span>{localStorage.getItem('username')}</span>
+                <span className="position-relative">
+                    <Link
+                        to={`profile/${localStorage.getItem('username')}`}   
+                        className="
+                           position-absolute 
+                           top-0
+                           start-0
+                           bottom-0
+                           end-0
+                        "
+                    >
+                    </Link>
+                    {localStorage.getItem('username')}
+                </span>
                 <button
                     className="btn position-relative"
                 >

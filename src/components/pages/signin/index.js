@@ -39,9 +39,10 @@ const SignInPage = () => {
             localStorage.setItem('token', response.data.token)
             navigate(0)
         } catch (error) {
-            for (let i in error.response.data.violations) {
-                setErrors(prevArr => prevArr.concat(error.response.data.violations[i].message))
-            }
+            console.log(error)
+            // for (let i in error.response.data.violations) {
+            //     setErrors(prevArr => prevArr.concat(error.response.data.violations[i].message))
+            // }
         }
     }
 

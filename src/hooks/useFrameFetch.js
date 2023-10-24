@@ -13,11 +13,12 @@ export const useFrameFetch = (slug) => {
                 setLoading(true)
                 const response = await axios.get(`http://localhost:8000/games/${slug}`, {
                     headers: {
-                        'Access-Control-Allow-Origin': '*'
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': 'Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control'
                     }
                 })
                 console.log(response)
-                setFrame(response)
+                setFrame(response.data)
                 setLoading(false)
             } catch (error) {
                 setError(error)
@@ -25,7 +26,7 @@ export const useFrameFetch = (slug) => {
             }
         }
         getFrame()
-    }, [])
+    }, [slug])
 
     return {
         loading,

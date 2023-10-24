@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const Card = ({ card, CardRef }) => {
+const Card = ({ card, CardRef, manage }) => {
     return (
         <>
         <div ref={CardRef} className="position-relative card border p-2">
@@ -17,6 +17,7 @@ const Card = ({ card, CardRef }) => {
             <div className="d-flex justify-content-between p-2">
                 <h3 className="align-self-end">{card.title}</h3>
                 <p>#scores submitted: {card.scoreCount}</p>
+                {manage && <p>manage</p>}
             </div>
             <div className="d-flex">
                 <img 
