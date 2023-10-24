@@ -102,6 +102,7 @@ const GamePage = () => {
                                 right-0
                                 bottom-0
                                 left-0
+                                w-100
                                 "
                                 to={`/profile/${score.username}`}
                             >

@@ -6,6 +6,7 @@ import SignOutPage from "../components/pages/signout"
 import SignInPage from "../components/pages/signin"
 import GamePage from "../components/pages/game"
 import Profile from "../components/pages/profile"
+import GameManage from "../components/pages/game-manage"
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: '/profile/:username',
                 element: <Profile />
+            },
+            {
+                path: '/game/manage/:slug',
+                element: <GameManage />
             }
         ]
     }

@@ -3,13 +3,12 @@ import Card from "../card"
 
 const CardList = React.forwardRef(({cards, CardRef, username}, ref) => {
 
-    if (cards)
-    console.log(cards[0])
+    const loggedUsername = localStorage.getItem('username')
     return (
         <>
         <section className="section-margin">
             {cards && cards.length && cards.map((card, index) => {
-                if (username === card.author) {
+                if (username === loggedUsername) {
                     return <Card manage={true} key={card.slug} card={card} />
                 }
                 if (cards.length === index + 1) {
