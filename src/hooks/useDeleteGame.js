@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import instance from "../axios/axiosInstance";
 
-export default function useGameFetch(slug) {
+export default function useDeleteGame(slug) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [game, setGame] = useState(null)
 
     useEffect(() => {
-        
+        setLoading(true)
         const getGames = async () => {
             try {
-                setLoading(true)
-                const response = await instance.get(`games/${slug}`)
+                const response = await instance.delete(`games/${slug}`)
                 setGame(response.data)
                 setLoading(false)
                 console.log(response.data)

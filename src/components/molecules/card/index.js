@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import useUpdateGame from "../../../hooks/useUpdateGame"
 
 const Card = ({ card, CardRef, manage, isEditing }) => {
     const [title, setTitle] = useState(null)
     const [description, setDescription] = useState(null)
+    const updateGame = useUpdateGame(card.slug, title, description)
 
     useState(() => {
         setTitle(card.title)
@@ -21,18 +23,11 @@ const Card = ({ card, CardRef, manage, isEditing }) => {
     return (
         <>
         <div ref={CardRef} className="position-relative card border p-2">
-        {isEditing 
-        ? <></>
-        :
         <Link
-            className="
-            position-absolute
-            start-0
-            end-0
-            bottom-0
-            top-0
-            "
-        to={'/game/'+ card.slug}></Link>}
+            className={`
+            position-absolute 
+            ${isEditing ? '' : "start-0 end-0 bottom-0 top-0"}`}
+        to={'/game/'+ card.slug}></Link>
             <div className="d-flex justify-content-between p-2">
                 {isEditing 
                 ? <input value={title} onChange={onTitleChange} />

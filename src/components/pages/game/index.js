@@ -46,13 +46,13 @@ const GamePage = () => {
 
     useEffect(() => {
         const frameDoc = document.getElementById('frame_id')
-        if (frame.loading) {
+        if (frameDoc && frame.loading) {
             frameDoc.setAttribute('srcDoc', '')
         }
-        else if (frame.error) {
+        else if (frameDoc && frame.error) {
             frameDoc.setAttribute('srcDoc', frame.error)
         }
-        else if (frame.frame) {
+        else if (frameDoc && frame.frame) {
             frameDoc.setAttribute('srcDoc', frame.frame)
         }
 
@@ -70,7 +70,7 @@ const GamePage = () => {
         return () => {
             window.removeEventListener('message', watchFrameMessage)
         }
-    }, [frame.frame])
+    }, [frame.frame, game.game])
 
     return (
         <>
@@ -78,7 +78,9 @@ const GamePage = () => {
             Do ya wanna submit your scores?
         </Modal>
         <main className="container">
-            <h2 className="section-margin">{game.game.slug}</h2>
+            {game.game && 
+                <>
+                <h2 className="section-margin">{game.game.slug}</h2>
             <iframe id="frame_id" srcDoc={``} ></iframe>
             <div className="flex justify-between">
                 <div className="w-50 px-2">
@@ -124,6 +126,8 @@ const GamePage = () => {
                     <p>{game.game.description}</p>
                 </div>
             </div>
+                </>
+            }
         </main>
         </>
     )
